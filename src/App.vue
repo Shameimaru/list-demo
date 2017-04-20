@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <h2>Photo List</h2>
-        <transition name="fade">
+        <transition name="fade" mode="out-in">
             <router-view></router-view>
         </transition>
     </div>
@@ -25,11 +25,11 @@
             text-align: center;
         }
     }
-    .fade-enter {
+    .fade-enter, .fade-leave-active {
         opacity: 0;
         transform: translateX(50px);
     }
-    .fade-enter-active {
-        transition: all 600ms;
+    .fade-enter-active, .fade-leave-active {
+        transition: all 500ms;
     }
 </style>
