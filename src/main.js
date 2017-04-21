@@ -4,8 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store'
+import directives from './directives';
 
-console.log(directives);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
