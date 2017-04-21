@@ -1,11 +1,27 @@
 /**
  * Created by TataraYuuyami on 2017/4/14.
  */
-
 import * as types from './mutation_types';
 
+const defaultData = [{
+    title: 'this is title1',
+    description: 'desc here',
+    photo: '2.png',
+    comments: ['good', 'nice']
+}, {
+    title: '2222',
+    description: 'desc here',
+    photo: '3.png',
+    comments: ['good', 'nice']
+}, {
+    title: 'werewr',
+    description: 'desc here',
+    photo: 'compass.jpg',
+    comments: ['good', 'nice', 'it is a comment', 'it is a comment', 'it is a comment', 'it is a comment', 'it is a comment']
+}];
+
 const state = {
-    listdata: []
+    listdata: defaultData
 };
 
 const getters = {

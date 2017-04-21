@@ -4,7 +4,7 @@
 import * as types from './mutation_types';
 
 const state = {
-    listTitles: []
+    listTitles: ['this is title1', '2222', 'werewr']
 };
 
 const getters = {
