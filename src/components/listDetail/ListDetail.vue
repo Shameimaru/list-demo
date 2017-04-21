@@ -12,7 +12,7 @@
                     </template>
                 </div>
                 <div class="comment-ipt">
-                    <input type="text" placeholder="添加评论" v-model="commentText" @keyup.enter.prevent="addCommentHandler({ entryIndex: index, commentText })" />
+                    <input v-focus type="text" placeholder="添加评论" v-model="commentText" @keyup.enter.prevent="addCommentHandler({ entryIndex: index, commentText })" />
                 </div>
             </div>
         </div>
