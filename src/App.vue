@@ -9,10 +9,7 @@
 
 <script>
     export default {
-        name: 'app',
-        created() {
-            this.$store.dispatch('INIT_DATA')
-        }
+        name: 'app'
     }
 </script>
 

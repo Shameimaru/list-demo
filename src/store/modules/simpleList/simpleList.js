@@ -21,17 +21,24 @@ const defaultData = [{
 }];
 
 const state = {
-    listdata: defaultData
+    listdata: [],
+    loading: false
 };
 
 const getters = {
     listTitles: ({ listdata }) => listdata.map((item) => item.title),
-    listdata: ({ listdata }) => listdata
+    listdata: ({ listdata }) => listdata,
+    loading: ({ loading }) => loading
 };
 
 const actions = {
-    [types.INIT_DATA]({ commit }, payload) {
-        commit(types.INIT_DATA, payload);
+    [types.INIT_DATA]({ commit }) {
+        commit(types.CHANGE_LOADING, true);
+        setTimeout(() => {
+            commit(types.CHANGE_LOADING, false);
+            commit(types.LOAD_DATA, defaultData);
+
+        }, 3000);
     },
     [types.DELETE_COMMENT]({ commit }, payload) {
         commit(types.DELETE_COMMENT, payload);
@@ -50,6 +57,12 @@ const mutations = {
     },
     [types.ADD_COMMENT]({ listdata }, { entryIndex, commentText }) {
         listdata[entryIndex].comments.push(commentText);
+    },
+    [types.CHANGE_LOADING](state, isLoading) {
+        state.loading = isLoading;
+    },
+    [types.LOAD_DATA](state, data) {
+        state.listdata = data;
     }
 };
 

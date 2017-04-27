@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <div :key="index" v-for="(title, index) in titles">
+        <div v-if="loading"><h1>Loading...</h1></div>
+        <div v-else :key="index" v-for="(title, index) in titles">
             <router-link :to="{
                     name: '/ListDetail/:index',
                     params: {
@@ -20,8 +21,9 @@
     export default {
         computed: {
             ...mapGetters('simpleList', {
+                loading: 'loading',
                 titles: 'listTitles',
-                data: 'listdata'
+                data: 'listdata',
             })
         },
         methods: {
@@ -29,6 +31,9 @@
                 deleteCommentHandler: [types.DELETE_COMMENT],
                 addCommentHandler: [types.ADD_COMMENT]
             })
+        },
+        created() {
+            this.$store.dispatch('simpleList/INIT_DATA')
         }
     };
 </script>
