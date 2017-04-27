@@ -9,7 +9,10 @@
 
 <script>
     export default {
-        name: 'app'
+        name: 'app',
+        created() {
+            this.$store.dispatch('simpleList/INIT_DATA')
+        }
     }
 </script>
 

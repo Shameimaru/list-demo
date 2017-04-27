@@ -1,8 +1,9 @@
 <template>
     <div class="container">
         <div v-if="loading"><h1>Loading...</h1></div>
-        <div v-else :key="index" v-for="(title, index) in titles">
-            <router-link :to="{
+        <div v-else>
+            <div class="list" :key="index" v-for="(title, index) in titles">
+                <router-link :to="{
                     name: '/ListDetail/:index',
                     params: {
                         index,
@@ -11,6 +12,7 @@
                         addCommentHandler
                     }
                 }">{{ title }}</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -31,10 +33,8 @@
                 deleteCommentHandler: [types.DELETE_COMMENT],
                 addCommentHandler: [types.ADD_COMMENT]
             })
-        },
-        created() {
-            this.$store.dispatch('simpleList/INIT_DATA')
         }
+
     };
 </script>
 
@@ -43,7 +43,7 @@
     .container {
         width: 200px;
         margin: 0 auto;
-        div {
+        .list {
             border-bottom: 1px solid black;
             cursor: pointer;
             &:hover {

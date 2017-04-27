@@ -4,7 +4,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import simpleList from './modules/simpleList/simpleList';
-import * as types from './mutation_types';
 
 Vue.use(Vuex);
 
