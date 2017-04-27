@@ -20,9 +20,6 @@
 </template>
 
 <script>
-    import { mapGetters, mapActions } from 'vuex';
-
-    import * as types from '../../store/modules/listDetail/mutation_types';
 
     export default {
         data: function() {
@@ -30,19 +27,12 @@
                 commentText: ''
             }
         },
-        computed: {
-            ...mapGetters(['listdata']),
-            entry: function() {
-                return this.listdata[this.index]
-            }
-        },
-        props: ['index'],
-        methods: {
-            ...mapActions({
-                deleteCommentHandler: [types.LIST_DELETE_COMMENT],
-                addCommentHandler: [types.LIST_ADD_COMMIT]
-            })
-        }
+        props: [
+            'index',
+            'entry',
+            'deleteCommentHandler',
+            'addCommentHandler'
+        ],
     }
 </script>
 

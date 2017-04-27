@@ -1,16 +1,34 @@
 <template>
     <div class="container">
-        <div :key="index" v-for="(title, index) in listTitles">
-            <router-link :to="{name: '/ListDetail/:index', params: { index: index }}">{{ title }}</router-link>
+        <div :key="index" v-for="(title, index) in titles">
+            <router-link :to="{
+                    name: '/ListDetail/:index',
+                    params: {
+                        index,
+                        entry: data[index],
+                        deleteCommentHandler,
+                        addCommentHandler
+                    }
+                }">{{ title }}</router-link>
         </div>
     </div>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
+    import * as types from '../../store/modules/simpleList/mutation_types';
     export default {
         computed: {
-            ...mapGetters(['listTitles'])
+            ...mapGetters('simpleList', {
+                titles: 'listTitles',
+                data: 'listdata'
+            })
+        },
+        methods: {
+            ...mapActions('simpleList', {
+                deleteCommentHandler: [types.DELETE_COMMENT],
+                addCommentHandler: [types.ADD_COMMENT]
+            })
         }
     };
 </script>

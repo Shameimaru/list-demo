@@ -3,7 +3,6 @@
  */
 import Vue from 'vue';
 import Vuex from 'vuex';
-import listDetail from './modules/listDetail/listDetail';
 import simpleList from './modules/simpleList/simpleList';
 import * as types from './mutation_types';
 
@@ -28,20 +27,15 @@ const mock_data = [{
 
 const actions = {
     [types.INIT_DATA]({ dispatch }) {
-        dispatch('SIMPLELIST_INIT_DATA', mock_data);
-        dispatch('LIST_INIT_DATA', mock_data);
+        dispatch('simpleList/INIT_DATA', mock_data);
     }
 };
 
 const mutations = {
-    [types.INIT_DATA](state) {
-
-    }
 };
 
 export default new Vuex.Store({
     modules: {
-        listDetail,
         simpleList
     },
     actions,

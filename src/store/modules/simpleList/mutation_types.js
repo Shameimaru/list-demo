@@ -1,4 +1,6 @@
 /**
  * Created by Administrator on 2017/4/19.
  */
-export const SIMPLELIST_INIT_DATA = 'SIMPLELIST_INIT_DATA';
+export const INIT_DATA = 'INIT_DATA';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
